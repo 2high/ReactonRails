@@ -16,13 +16,15 @@ User can create
 ### Installation Instructions
 
 
-git clone https://github.com/2high/ReactTube
-cd ReactTube
-npm install
+git clone https://github.com/2high/ReactonRails
+cd ReactonRails
+bin/rails db:migrate RAILS_ENV=development
+
+
 
 
 ```
-Run `npm run dev` and visit localhost:8080 to make sure everything is working.
+Run `rails server` and visit localhost:3000 to make sure everything is working.
 ```
 
 
@@ -42,14 +44,45 @@ The structure of the web app:
 
 ```
 ...
+var Body = React.createClass({
+    getInitialState() {
+        return { items: [] }
+    },
 
+
+    componentDidMount() {
+        $.getJSON('/api/v1/items.json', (response) => { this.setState({ items: response }) });
+    },
+
+
+
+    handleSubmit(item) {
+        var newState = this.state.items.concat(item);
+        this.setState({ items: newState })
+    },
+
+
+    handleDelete(id) {
+        $.ajax({
+            url: `/api/v1/items/${id}`,
+            type: 'DELETE',
+            success:() => {
+               this.removeItemClient(id);
+            }
+        });
+    },
+
+    removeItemClient(id) {
+        var newItems = this.state.items.filter((item) => {
+            return item.id != id;
+        });
+
+        this.setState({ items: newItems });
+    },
 ...
 
 ```
 
-## Deployment
-
-Deployed on []()
 
 ## Author
 
