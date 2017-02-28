@@ -30,9 +30,9 @@ Run `npm run dev` and visit localhost:8080 to make sure everything is working.
 ## Wireframes:
 
 
-![First screen] ()
+![First screen] (https://github.com/2high/ReactonRails/blob/master/public/p1.png?raw=true)
 
-![Favorites screen] ()
+
 
 
 
