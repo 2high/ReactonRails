@@ -10,7 +10,7 @@
 
 ### General Approach Used
 
-User can create
+Create an app that allows the user to save his favorite restaurants in the city with the URL.
 
 
 ### Installation Instructions
